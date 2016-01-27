@@ -1,15 +1,12 @@
 package edu.upenn.cis350.hwk1;
 
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class HighQualityQuery {
 
-	public static void highQualityQuery(HashMap<String, Double> courseQualityMappings, PrintWriter logWriter) {
+	public static void highQualityQuery(HashMap<String, Double> courseQualityMappings) {
 		Scanner input = new Scanner(System.in);
 		String prompt = "Enter a course quality threshold value. All courses with quality"
 				+ "scores above this value will be displayed.\n";
@@ -19,10 +16,6 @@ public class HighQualityQuery {
 	    Double userThreshold = 4.0;
 	  
 	    while ((userInput = input.next()) != "") {
-	    	String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-				.format(Calendar.getInstance().getTime());
-			logWriter.print("Time: " + timeStamp + " | ");
-			logWriter.println("User's quality threshold is " + userInput);
 	    	try {  
 	    	    userThreshold = Double.parseDouble(userInput);  
 	    	    break;

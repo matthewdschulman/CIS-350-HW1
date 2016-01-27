@@ -24,7 +24,7 @@ public class InstructorQuery {
 	    String userInput = input.next();
 	    
 	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-			.format(Calendar.getInstance().getTime());
+		.format(Calendar.getInstance().getTime());
 		logWriter.print("Time: " + timeStamp + " | ");
 		logWriter.println("User's instructor search term is " + userInput);
 	    

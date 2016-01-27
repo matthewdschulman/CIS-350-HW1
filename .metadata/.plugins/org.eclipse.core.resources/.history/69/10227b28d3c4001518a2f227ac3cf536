@@ -1,8 +1,6 @@
 package edu.upenn.cis350.hwk1;
 
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,11 +20,6 @@ public class InstructorQuery {
 	    System.out.println(prompt);
 	    
 	    String userInput = input.next();
-	    
-	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-			.format(Calendar.getInstance().getTime());
-		logWriter.print("Time: " + timeStamp + " | ");
-		logWriter.println("User's instructor search term is " + userInput);
 	    
 	    // Make the query case insensitive
 	    userInput = userInput.toUpperCase();

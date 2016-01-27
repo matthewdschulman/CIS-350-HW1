@@ -100,10 +100,6 @@ public class Main {
 				HighQualityQuery.highQualityQuery(courseQualityMappings, logWriter);
 			} else if (userResponse.equals("E")) {
 				System.out.println("Thank you for using the Schulman Searcher! Goodbye!\n\n");
-				timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-	    			.format(Calendar.getInstance().getTime());
-				logWriter.print("Time: " + timeStamp + " | ");
-				logWriter.println("Program Ended");
 				logWriter.close();
 				System.exit(0);
 			}

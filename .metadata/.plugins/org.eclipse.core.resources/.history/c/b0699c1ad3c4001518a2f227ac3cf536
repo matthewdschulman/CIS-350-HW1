@@ -1,8 +1,5 @@
 package edu.upenn.cis350.hwk1;
 
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,7 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class InstructorQuery {
-	public static void instructorQuery(HashMap<String, TreeSet<String>> profToCourses, PrintWriter logWriter) {
+	public static void instructorQuery(HashMap<String, TreeSet<String>> profToCourses) {
 		Scanner input = new Scanner(System.in);
 		String prompt = "Please enter an instructor name. Partial matches are okay, and the "
 				+ "search is case-insensitive.\nE.g. “osera”, “OSERA”, “Peter”, "
@@ -22,11 +19,6 @@ public class InstructorQuery {
 	    System.out.println(prompt);
 	    
 	    String userInput = input.next();
-	    
-	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-			.format(Calendar.getInstance().getTime());
-		logWriter.print("Time: " + timeStamp + " | ");
-		logWriter.println("User's instructor search term is " + userInput);
 	    
 	    // Make the query case insensitive
 	    userInput = userInput.toUpperCase();

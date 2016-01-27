@@ -1,0 +1,8 @@
+Time: 20160127_035456 | Runtime arguments: courseEvalFileName = /Users/Matt/Documents/Penn_2016_Spring/CIS-350/HW1/HW1-Implementation/ratings.txt | logFileName = logFile.txt
+Time: 20160127_035458 | User just made the choice of Q
+Time: 20160127_035500 | User's quality threshold is 3.23453
+Time: 20160127_035501 | User just made the choice of R
+Time: 20160127_035502 | User just made the choice of I
+Time: 20160127_035503 | User's instructor search term is nadia
+Time: 20160127_035507 | User just made the choice of E
+Time: 20160127_035507 | Program Ended

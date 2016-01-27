@@ -103,7 +103,7 @@ public class Main {
 				timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 	    			.format(Calendar.getInstance().getTime());
 				logWriter.print("Time: " + timeStamp + " | ");
-				logWriter.println("Program Ended");
+				logWriter.println("User just made the choice of " + userResponse);
 				logWriter.close();
 				System.exit(0);
 			}

@@ -2,9 +2,6 @@ package edu.upenn.cis350.hwk1;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -45,12 +42,7 @@ public class Main {
 	    }
 	    
 	    // Set up the log file
-	    PrintWriter logWriter = new PrintWriter(logFileName, "UTF-8");
-	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-	    	.format(Calendar.getInstance().getTime());
-	    logWriter.print("Time: " + timeStamp + " | ");
-	    logWriter.println("Runtime arguments: courseEvalFileName = " 
-	    		+ courseEvalFileName + " | logFileName = " + logFileName);
+	    File logFile = new File(logFileName);
 	    
 	    // Do some pre user input data parsing
 	    File courseEvalFile = new File(courseEvalFileName);
@@ -81,14 +73,10 @@ public class Main {
 		// 4) Quit the program
 		while (true) {
 			String userResponse = GetUserCommand.getUserCommand();
-			timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-	    		.format(Calendar.getInstance().getTime());
-			logWriter.print("Time: " + timeStamp + " | ");
-			logWriter.println("User just made the choice of " + userResponse);
 			
 			if (userResponse.equals("I")) {
 				// Handle finding all courses taught by a specified professor
-				InstructorQuery.instructorQuery(profToCourses, logWriter);				
+				InstructorQuery.instructorQuery(profToCourses);				
 			} else if (userResponse.equals("R")) {
 				// Handle finding the top five courses with the lowest difficulty-to-quality 
 				// ratio across all offerings
@@ -97,14 +85,9 @@ public class Main {
 			} else if (userResponse.equals("Q")) {
 				// Handle finding all courses at or above a specified rating across 
 				// all offerings
-				HighQualityQuery.highQualityQuery(courseQualityMappings, logWriter);
+				HighQualityQuery.highQualityQuery(courseQualityMappings);
 			} else if (userResponse.equals("E")) {
 				System.out.println("Thank you for using the Schulman Searcher! Goodbye!\n\n");
-				timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-	    			.format(Calendar.getInstance().getTime());
-				logWriter.print("Time: " + timeStamp + " | ");
-				logWriter.println("Program Ended");
-				logWriter.close();
 				System.exit(0);
 			}
 		}

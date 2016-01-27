@@ -30,7 +30,8 @@ public class CheckInputArgs {
 				
 		// Check if the log file can be opened for writing 
 		// (is it in a read-only directory?)
-		File logF = new File(logFileName);
+		File logF = new File("logfiletest.txt");
+		// This does not actually create a file
 		try {
 		    //create a new file if it doesn't exist already
             logF.createNewFile();
