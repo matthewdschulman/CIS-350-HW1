@@ -68,7 +68,6 @@ public class Main {
 
 			} else if (userResponse.equals("E")) {
 				System.out.println("Thank you for using the Schulman Searcher! Goodbye!");
-				System.exit(0);
 			}
 			
 		}
