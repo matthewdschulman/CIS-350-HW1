@@ -40,21 +40,21 @@ public class Main {
 		while (true) {
 			String userResponse = GetUserCommand.getUserCommand();
 			
-			if (userResponse.equals("I")) {
+			if (userResponse == "I") {
 				// Handle finding all courses taught by a specified professor
 				LinkedList<String> profSpecificCourses = InstructorQuery.instructorQuery();
 				
-			} else if (userResponse.equals("R")) {
+			} else if (userResponse == "R") {
 				// Handle finding the top five courses with the lowest difficulty-to-quality 
 				// ratio across all offerings
 				LinkedList<String> bestRatioCourses = BestRatioQuery.bestRatioQuery();
 
-			} else if (userResponse.equals("Q")) {
+			} else if (userResponse == "Q") {
 				// Handle finding all courses at or above a specified rating across 
 				// all offerings
 				LinkedList<String> highQualityCourses = HighQualityQuery.highQualityQuery();
 
-			} else if (userResponse.equals("E")) {
+			} else if (userResponse == "E") {
 				System.out.println("Thank you for using the Schulman Searcher! Goodbye!");
 			}
 			
