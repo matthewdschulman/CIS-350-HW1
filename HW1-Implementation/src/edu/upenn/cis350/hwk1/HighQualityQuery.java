@@ -4,9 +4,7 @@ import java.util.LinkedList;
 
 public class HighQualityQuery {
 
-	public static LinkedList<String> highQualityQuery() {
-		// TODO Auto-generated method stub
-		return null;
+	public static void highQualityQuery() {
 	}
 
 }

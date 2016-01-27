@@ -62,6 +62,7 @@ public class Main {
 				// Handle finding all courses at or above a specified rating across 
 				// all offerings
 				HighQualityQuery.highQualityQuery();
+
 			} else if (userResponse.equals("E")) {
 				System.out.println("Thank you for using the Schulman Searcher! Goodbye!");
 				System.exit(0);

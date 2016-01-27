@@ -11,7 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class InstructorQuery {
-	public static void instructorQuery(HashMap<String, TreeSet<String>> profToCourses) {
+	public static LinkedList<String> instructorQuery(HashMap<String, TreeSet<String>> profToCourses) {
 		Scanner input = new Scanner(System.in);
 		String prompt = "Please enter an instructor name. Partial matches are okay, and the "
 				+ "search is case-insensitive.\nE.g. “osera”, “OSERA”, “Peter”, "
@@ -52,6 +52,7 @@ public class InstructorQuery {
     		// Print a new line before the next professor
     		System.out.println("");
     		firstCourse = true;
-    	}    		  
+    	}    		    
+	    return null;
 	}
 }
