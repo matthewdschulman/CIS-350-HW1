@@ -67,7 +67,7 @@ public class DataParsing {
 		return sortByValue(courseRatios, false);
 	}
 	
-	public static LinkedHashMap<java.lang.String, java.lang.Double> getQualityScores(
+	public static HashMap<String, Double> getQualityScores(
 			HashMap<String, CollegeClass> classTracker) {
 		HashMap<String, Double> courseQualityScores = new HashMap<String, Double>();
 		for (String course : classTracker.keySet()) {

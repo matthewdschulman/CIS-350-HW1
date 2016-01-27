@@ -66,12 +66,12 @@ public class Main {
 		    
 		    // Next, create a linkedhashmap that maps courses to their
 		    // difficulty-to-quality ratios from lowest to highest
-		    LinkedHashMap<String, Double> courseRatios = 
+		    HashMap<String, Double> courseRatios = 
 		    	DataParsing.getRatios(classTracker);	
 		    
 		    // Last, create a linkedhashmap that maps courses to 
 		    // their quality score from highest to lowest
-		    LinkedHashMap<String, Double> courseQualityMappings =
+		    HashMap<String, Double> courseQualityMappings =
 		    	DataParsing.getQualityScores(classTracker);
 		    
 			// While the User hasn't asked to quit, ask User to either 
