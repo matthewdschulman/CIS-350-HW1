@@ -1,0 +1,11 @@
+package edu.upenn.cis350.hwk1;
+
+import java.util.LinkedList;
+import java.util.TreeMap;
+
+public class BestRatioQuery {
+
+	public static void bestRatioQuery(TreeMap<Double, String> courseRatios) {
+	}
+
+}

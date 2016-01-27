@@ -7,7 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class DataParsing {
@@ -42,6 +44,48 @@ public class DataParsing {
 		
 		// return the professor to course mapping
 		return profToCourses;
+	}
+
+	public static HashMap<String, Double> getRatios(File courseEvalFile) throws IOException {
+		// Get the ratios for each course, keeping track of each section's number
+		// of students and the quality and difficulty ratings
+		HashMap<String, CollegeClass> classTracker = new HashMap<String, CollegeClass>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(courseEvalFile));
+			String line;
+		    while ((line = br.readLine()) != null) {
+		        String[] curLine = line.split(",");
+		        String curClass = curLine[0];
+		        int numOfStudents = Integer.parseInt(curLine[2].trim());
+		        Double courseQualityScore = Double.parseDouble(curLine[3]);
+		        Double courseDifficultyScore = Double.parseDouble(curLine[4]);
+		        // check if the current class already has been encountered
+		        if (classTracker.get(curClass) == null) {
+		        	CollegeClass curClassObj = new CollegeClass(curClass, numOfStudents, 
+		        		courseQualityScore, courseDifficultyScore);
+		        	classTracker.put(curClass, curClassObj);
+		        } else {
+		        	CollegeClass curClassObj = classTracker.get(curClass);
+		        	curClassObj.addNewClassSection(numOfStudents, courseQualityScore, 
+		        		courseDifficultyScore);
+		        }
+		    }
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// Create a sorted mapping of the course ratios
+		HashMap<String, Double> courseRatios = new HashMap<String, Double>();
+		for (String course : classTracker.keySet()) {
+			CollegeClass curClassObj = classTracker.get(course);
+			courseRatios.put(
+				course,
+				curClassObj.getDifficultyScore()/curClassObj.getQualityScore()				
+			);
+		}
+		
+		// Return the sorted mapping from difficulty-to-quality ratio -> course code
+		return courseRatios;
 	}
 
 }

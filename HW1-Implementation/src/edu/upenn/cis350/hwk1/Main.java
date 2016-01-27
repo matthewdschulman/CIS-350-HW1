@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Main {	
@@ -40,7 +42,12 @@ public class Main {
 	    File courseEvalFile = new File(courseEvalFileName);
 	    // First, create a mapping of each instructor to his/her courses
 	    HashMap<String, TreeSet<String>> profToCourses = 
-	    		DataParsing.getProfToCourses(courseEvalFile);
+	    	DataParsing.getProfToCourses(courseEvalFile);
+	    
+	    // Next, create a linkedhashmap that maps coursese to their
+	    // difficulty-to-quality ratios from lowest to highest
+	    HashMap<String, Double> courseRatios = 
+	    	DataParsing.getRatios(courseEvalFile);	
 
 		// While the User hasn't asked to quit, ask User to either 
 		// 1) Find all courses taught by a specified instructor 
@@ -57,7 +64,7 @@ public class Main {
 			} else if (userResponse.equals("R")) {
 				// Handle finding the top five courses with the lowest difficulty-to-quality 
 				// ratio across all offerings
-				BestRatioQuery.bestRatioQuery();
+				BestRatioQuery.bestRatioQuery(courseRatios);
 			} else if (userResponse.equals("Q")) {
 				// Handle finding all courses at or above a specified rating across 
 				// all offerings

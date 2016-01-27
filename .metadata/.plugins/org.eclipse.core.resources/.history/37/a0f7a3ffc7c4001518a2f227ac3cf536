@@ -1,0 +1,12 @@
+package edu.upenn.cis350.hwk1;
+
+public class CollegeClass {
+	private String className;
+	private int numOfStudents;
+	private double totalQualityPoints;
+	private double totalDifficultyPoints;
+	
+	public CollegeClass(String className) {
+		this.className = className;
+	}
+}
