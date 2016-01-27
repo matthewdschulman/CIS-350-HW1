@@ -1,5 +1,9 @@
 package edu.upenn.cis350.hwk1;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public class Main {	
@@ -17,7 +21,7 @@ public class Main {
 	// 1) the input file is well-formed (assuming it exists
 	// and can be opened)
 	// 2) the log file is by default written to the working directory
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
     	System.out.println("Welcome to the Schulman Searcher!"); 	
 
 		// Check that the input args are all valid
@@ -30,6 +34,12 @@ public class Main {
 	    	courseEvalFileName = args[0];
 	    	logFileName = args[1];
 	    }
+	    
+	    // Do some pre user input data parsing
+	    File courseEvalFile = new File(courseEvalFileName);
+	    // First, create a mapping of each instructor to his/her courses
+	    HashMap<String, HashSet<String>> profToCourses = 
+	    		DataParsing.getProfToCourses(courseEvalFile);
 
 		// While the User hasn't asked to quit, ask User to either 
 		// 1) Find all courses taught by a specified instructor 
@@ -42,7 +52,8 @@ public class Main {
 			
 			if (userResponse.equals("I")) {
 				// Handle finding all courses taught by a specified professor
-				LinkedList<String> profSpecificCourses = InstructorQuery.instructorQuery();
+				LinkedList<String> profSpecificCourses = 
+					InstructorQuery.instructorQuery(profToCourses);
 				
 			} else if (userResponse.equals("R")) {
 				// Handle finding the top five courses with the lowest difficulty-to-quality 

@@ -1,0 +1,34 @@
+package edu.upenn.cis350.hwk1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class DataParsing {
+
+	public static HashMap<String, LinkedList<String>> getProfToCourses(
+			File courseEvalFile) throws IOException {
+		
+		// Read through the file and create mappings for each prof
+		// to the courses that he teaches
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(courseEvalFile));
+			String line;
+		    while ((line = br.readLine()) != null) {
+		        System.out.println(line);
+		    }
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,62 @@
+package edu.upenn.cis350.hwk1;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class InstructorQuery {
+	public static LinkedList<String> instructorQuery(HashMap<String, HashSet<String>> profToCourses) {
+		Scanner input = new Scanner(System.in);
+		String prompt = "Please enter an instructor name. Partial matches are okay, and the "
+				+ "search is case-insensitive.\nE.g. “osera”, “OSERA”, “Peter”, "
+				+ "and even “ael S.” should all result in a match for PETER-MICHAEL S. OSERA.";
+	    System.out.println(prompt);
+	    
+	    String userInput = input.next();
+	    
+	    // Make the query case insensitive
+	    userInput.toUpperCase();
+	    
+	    // Save the matches for the printing
+	    LinkedList<HashMap<String, HashSet<String>>> instructorMatches = 
+	    	new LinkedList<HashMap<String, HashSet<String>>>();
+	    
+	    System.out.println("26");
+	    
+	    // Iterate through the prof to courses mappings to find the matches
+	    for (String prof : profToCourses.keySet()) {
+	    	// check if the current prof contains the query search
+	    	if (prof.toUpperCase().contains(userInput)) {
+	    		// A match!
+	    		HashMap<String, HashSet<String>> curMatch = 
+	    			new HashMap<String, HashSet<String>>();
+	    		curMatch.put(prof, profToCourses.get(prof));
+	    		instructorMatches.add(curMatch);
+	    	}
+	    }
+	    
+	    // Print the findings
+	    while (!instructorMatches.isEmpty()) {
+	    	// find each professor that matched
+	    	HashMap<String, HashSet<String>> curProfToInstructorPairing =
+	    		instructorMatches.removeFirst();
+	    	
+	    	// for each professor that matched, print the prof's name and his courses
+	    	for (String key : curProfToInstructorPairing.keySet()) {
+	    		System.out.print(key + ": ");
+	    		for (String course : curProfToInstructorPairing.get(key)) {
+	    			System.out.print(course + " | ");
+	    		}
+	    		// Print a new line before the next professor
+	    		System.out.println("");
+	    	}
+	    	
+	    	
+	    }
+	    
+	    return null;
+	}
+}

@@ -1,0 +1,41 @@
+package edu.upenn.cis350.hwk1;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class InstructorQuery {
+	public static LinkedList<String> instructorQuery(HashMap<String, LinkedList<String>> profToCourses) {
+		Scanner input = new Scanner(System.in);
+		String prompt = "Please enter an instructor name. Partial matches are okay, and the "
+				+ "search is case-insensitive.\nE.g. “osera”, “OSERA”, “Peter”, "
+				+ "and even “ael S.” should all result in a match for PETER-MICHAEL S. OSERA.";
+	    System.out.println(prompt);
+	    
+	    String userInput = input.next();
+	    
+	    // Make the query case insensitive
+	    userInput.toUpperCase();
+	    
+	    // Save the matches for the printing
+	    LinkedList<Entry<String, LinkedList<String>>> instructorMatches = 
+	    	new LinkedList<Entry<String, LinkedList<String>>>();
+	    
+	    // Iterate through the prof to courses mappings to find the matches
+	    for (String prof : profToCourses.keySet()) {
+	    	// check if the current prof contains the query search
+	    	if (prof.toUpperCase().contains(userInput)) {
+	    		// A match!
+	    		
+	    		instructorMatches.add(profToCourses.get(prof));
+	    	}
+	    }
+	    
+	    
+	    //find all courses that are a partial match with the instructor
+	    
+	    return null;
+	}
+}
