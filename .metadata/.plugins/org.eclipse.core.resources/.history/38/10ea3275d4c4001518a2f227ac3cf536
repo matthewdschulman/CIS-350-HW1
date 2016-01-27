@@ -1,6 +1,7 @@
 package edu.upenn.cis350.hwk1;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -31,28 +32,28 @@ public class Main {
 	public static int NUM_OF_COURSES_TO_RETURN_FOR_RATIO_QUESTION = 5;
 	
 	public static void main(String[] args) throws IOException {
-    	System.out.println("Welcome to the Schulman Searcher!"); 	
-
-		// Check that the input args are all valid
-	    boolean inputArgsAreValid = 
-	    	CheckInputArgs.checkInputArgs(args);
-	    
-	    String courseEvalFileName = "";
-	    String logFileName = "";
-	    if (inputArgsAreValid) {
-	    	courseEvalFileName = args[0];
-	    	logFileName = args[1];
-	    }
-	    
-	    // Set up the log file
-	    PrintWriter logWriter = new PrintWriter(logFileName, "UTF-8");
-	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-	    	.format(Calendar.getInstance().getTime());
-	    logWriter.print("Time: " + timeStamp + " | ");
-	    logWriter.println("Runtime arguments: courseEvalFileName = " 
-	    		+ courseEvalFileName + " | logFileName = " + logFileName);
-	    
-	    try {	    
+		try {
+	    	System.out.println("Welcome to the Schulman Searcher!"); 	
+	
+			// Check that the input args are all valid
+		    boolean inputArgsAreValid = 
+		    	CheckInputArgs.checkInputArgs(args);
+		    
+		    String courseEvalFileName = "";
+		    String logFileName = "";
+		    if (inputArgsAreValid) {
+		    	courseEvalFileName = args[0];
+		    	logFileName = args[1];
+		    }
+		    
+		    // Set up the log file
+		    PrintWriter logWriter = new PrintWriter(logFileName, "UTF-8");
+		    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+		    	.format(Calendar.getInstance().getTime());
+		    logWriter.print("Time: " + timeStamp + " | ");
+		    logWriter.println("Runtime arguments: courseEvalFileName = " 
+		    		+ courseEvalFileName + " | logFileName = " + logFileName);
+		    
 		    // Do some pre user input data parsing
 		    File courseEvalFile = new File(courseEvalFileName);
 		    // First, create a mapping of each instructor to his/her courses
@@ -109,13 +110,8 @@ public class Main {
 					System.exit(0);
 				}
 			}
-	    } catch (Exception e) {
-	    	logWriter.println(e.getMessage());
-	    	e.printStackTrace();
-	    	System.out.println("Unexpected error: " + e.getMessage());
-	    	System.out.println("Program Ending");			
-			logWriter.close();
-			System.exit(0);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
