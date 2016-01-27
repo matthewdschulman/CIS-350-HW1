@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class InstructorQuery {
 	public static LinkedList<String> instructorQuery(HashMap<String, HashSet<String>> profToCourses) {
@@ -23,35 +22,45 @@ public class InstructorQuery {
 	    userInput = userInput.toUpperCase();
 	    
 	    // Save the matches for the printing
-	    TreeMap<String, HashSet<String>> instructorMatches = 
-	    	new TreeMap<String, HashSet<String>>();
+	    LinkedList<HashMap<String, HashSet<String>>> instructorMatches = 
+	    	new LinkedList<HashMap<String, HashSet<String>>>();
 	    
 	    // Iterate through the prof to courses mappings to find the matches
 	    for (String prof : profToCourses.keySet()) {
 	    	// check if the current prof contains the query search
 	    	if (prof.toUpperCase().contains(userInput)) {
 	    		// A match!
-	    		instructorMatches.put(prof, profToCourses.get(prof));
+	    		HashMap<String, HashSet<String>> curMatch = 
+	    			new HashMap<String, HashSet<String>>();
+	    		curMatch.put(prof, profToCourses.get(prof));
+	    		instructorMatches.add(curMatch);
 	    	}
 	    }
 	    
+	    Collections.sort(instructorMatches);
+	    
 	    // Print the findings
-    	// for each professor that matched, print the prof's name and his courses
-    	boolean firstCourse = true;
-    	for (String prof : instructorMatches.keySet()) {
-    		System.out.print(prof + ": ");
-    		for (String course : instructorMatches.get(prof)) {
-    			if (firstCourse) {
-    				firstCourse = false;
-    				System.out.print(course);
-    			} else {
-    				System.out.print(", " + course);
-    			}	    			
-    		}
-    		// Print a new line before the next professor
-    		System.out.println("");
-    		firstCourse = true;
-    	}    		    
+	    while (!instructorMatches.isEmpty()) {
+	    	// find each professor that matched
+	    	HashMap<String, HashSet<String>> curProfToInstructorPairing =
+	    		instructorMatches.removeFirst();
+	    	
+	    	// for each professor that matched, print the prof's name and his courses
+	    	boolean firstCourse = true;
+	    	for (String key : curProfToInstructorPairing.keySet()) {
+	    		System.out.print(key + ": ");
+	    		for (String course : curProfToInstructorPairing.get(key)) {
+	    			if (firstCourse) {
+	    				firstCourse = false;
+	    				System.out.print(course);
+	    			} else {
+	    				System.out.print(", " + course);
+	    			}	    			
+	    		}
+	    		// Print a new line before the next professor
+	    		System.out.println("");
+	    	}    	
+	    }	    
 	    return null;
 	}
 }

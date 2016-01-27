@@ -36,22 +36,27 @@ public class InstructorQuery {
 	    }
 	    
 	    // Print the findings
-    	// for each professor that matched, print the prof's name and his courses
-    	boolean firstCourse = true;
-    	for (String prof : instructorMatches.keySet()) {
-    		System.out.print(prof + ": ");
-    		for (String course : instructorMatches.get(prof)) {
-    			if (firstCourse) {
-    				firstCourse = false;
-    				System.out.print(course);
-    			} else {
-    				System.out.print(", " + course);
-    			}	    			
-    		}
-    		// Print a new line before the next professor
-    		System.out.println("");
-    		firstCourse = true;
-    	}    		    
+	    while (!instructorMatches.isEmpty()) {
+	    	// find each professor that matched
+	    	HashMap<String, HashSet<String>> curProfToInstructorPairing =
+	    		instructorMatches.removeFirst();
+	    	
+	    	// for each professor that matched, print the prof's name and his courses
+	    	boolean firstCourse = true;
+	    	for (String key : curProfToInstructorPairing.keySet()) {
+	    		System.out.print(key + ": ");
+	    		for (String course : curProfToInstructorPairing.get(key)) {
+	    			if (firstCourse) {
+	    				firstCourse = false;
+	    				System.out.print(course);
+	    			} else {
+	    				System.out.print(", " + course);
+	    			}	    			
+	    		}
+	    		// Print a new line before the next professor
+	    		System.out.println("");
+	    	}    	
+	    }	    
 	    return null;
 	}
 }

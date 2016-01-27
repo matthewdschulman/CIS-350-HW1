@@ -50,7 +50,6 @@ public class InstructorQuery {
     		}
     		// Print a new line before the next professor
     		System.out.println("");
-    		firstCourse = true;
     	}    		    
 	    return null;
 	}
