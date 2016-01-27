@@ -1,0 +1,10 @@
+package edu.upenn.cis350.hwk1;
+
+public class CheckInputArgs {
+	//returns true if the input arguments are valid
+	//raises the corresponding exception if the input arguments are invalid
+	public static boolean checkInputArgs(String args[]) {
+		System.out.println("Checking...");
+		return true;
+	}
+}

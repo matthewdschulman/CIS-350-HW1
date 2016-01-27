@@ -1,0 +1,33 @@
+package edu.upenn.cis350.hwk1;
+
+import java.io.File;
+
+public class CheckInputArgs {
+	//returns true if the input arguments are valid
+	//raises the corresponding exception if the input arguments are invalid
+	public static boolean checkInputArgs(String[] args) {
+		// Check if incorrect number of args
+		if (args.length != 2) {
+			System.out.println("Incorrect number of args. You entered " + args.length + " arguments. Please try again.");
+			throw new IllegalArgumentException();
+		}
+
+		String courseEvalFile = args[0];
+		String logFileName = args[1];
+		
+		// Check if the specified data file exists
+		String fileName = System.getProperty("user.dir") + "/ratings.txt";
+		System.out.println(fileName);
+		
+		File f = new File(fileName);
+		if(!f.exists() || f.isDirectory()) { 
+			System.out.println("Tried to open " + courseEvalFile + " for the course evaluation file and couldn't open the file properly. Please try again");
+			throw new IllegalArgumentException();
+		}
+				
+		// Check if the log file can be opened for writing (is it in a read-only dir?)
+	
+		//
+		return true;
+	}
+}

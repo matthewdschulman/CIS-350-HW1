@@ -6,6 +6,8 @@
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="edu.upenn.cis350.hwk1.Main"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="/Users/Matt/Documents/Penn_2016_Spring/CIS-350/HW1/HW1-Implementation/ratings.txt&#10;logFile.txt"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="HW1-Implementation"/>
 </launchConfiguration>

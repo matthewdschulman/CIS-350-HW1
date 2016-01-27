@@ -1,0 +1,13 @@
+package edu.upenn.cis350.hwk1;
+
+public class CheckInputArgs {
+	//returns true if the input arguments are valid
+	//raises the corresponding exception if the input arguments are invalid
+	public static boolean checkInputArgs(String[] args) {
+		// Check if incorrect number of args
+		if (args.length != 2) {
+			System.out.println("Incorrect number of args. You entered " + args.length + " arguments. Please try again.");
+			throw new IllegalArgumentException();
+		}
+	}
+}
