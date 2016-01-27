@@ -13,6 +13,5 @@ public class InstructorQuery {
 	 
 	    String userInput = input.next();
 	    
-	    return null;
 	}
 }
