@@ -1,0 +1,24 @@
+package edu.upenn.cis350.hwk1;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class HighQualityQuery {
+
+	public static void highQualityQuery(HashMap<String, Double> courseQualityMappings) {
+		Scanner input = new Scanner(System.in);
+		String prompt = "Enter a course quality threshold value. All courses with quality"
+				+ "scores above this value will be displayed.\n";
+	    System.out.println(prompt);
+	    
+	    String userInput = input.next();
+		
+		// iterate through the course ratios mapping from lowest to highest
+		// to return the five most attractive course ratios above the user's threshold
+		for (String course: courseQualityMappings.keySet()) {			
+			System.out.println(course + ": " + courseQualityMappings.get(course));
+		}
+	}
+
+}

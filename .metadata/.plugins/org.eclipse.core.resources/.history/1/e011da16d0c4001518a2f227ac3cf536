@@ -12,24 +12,14 @@ public class HighQualityQuery {
 				+ "scores above this value will be displayed.\n";
 	    System.out.println(prompt);
 	    
-	    String userInput = "";
-	    Double userThreshold = 4.0;
-	  
-	    while ((userInput = input.next()) != "") {
-	    	try {  
-	    	    userThreshold = Double.parseDouble(userInput);  
-	    	    break;
-	    	} catch(NumberFormatException nfe) {  
-	    	    System.out.println(userInput + " is not a valid number. Please try again.");  
-	    	}
-	    }
+	    Double userInput = Double.parseDouble(input.next());
 		
 		// iterate through the course ratios mapping from lowest to highest
 		// to return the five most attractive course ratios above the user's threshold
 	    int numOfCoursesShown = 0;
 		for (String course: courseQualityMappings.keySet()) {	
 			Double curQualityScore = courseQualityMappings.get(course);
-			if (curQualityScore < userThreshold) {
+			if (curQualityScore < userInput) {
 				if (numOfCoursesShown == 0) {
 					System.out.println("There were no courses with a quality score "
 							+ "above " + userInput);

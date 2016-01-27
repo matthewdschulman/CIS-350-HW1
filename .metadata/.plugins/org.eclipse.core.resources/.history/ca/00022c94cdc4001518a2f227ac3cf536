@@ -10,7 +10,7 @@ public class GetUserCommand {
 	    		+ "'R' to find the top five courses with the lowest "
 	    		+ "difficulty-to-quality ratio across all offerings\n"
 	    		+ "'Q' to find all courses at or above a specified quality rating across all offerings\n"
-	    		+ "'E' to exit the program\n";
+	    		+ "'E' to exit the program";
 	    System.out.println(prompt); 
 	 
 	    String userInput = "";

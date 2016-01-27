@@ -18,7 +18,6 @@ public class HighQualityQuery {
 	    while ((userInput = input.next()) != "") {
 	    	try {  
 	    	    userThreshold = Double.parseDouble(userInput);  
-	    	    break;
 	    	} catch(NumberFormatException nfe) {  
 	    	    System.out.println(userInput + " is not a valid number. Please try again.");  
 	    	}

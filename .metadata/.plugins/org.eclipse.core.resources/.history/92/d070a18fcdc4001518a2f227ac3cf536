@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class GetUserCommand {
 	public static String getUserCommand() {
 		Scanner input = new Scanner(System.in);
-		String prompt = "\nMain Menu!\nInput One of the following commands:\n"
+		String prompt = "Input One of the following commands:\n"
 	    		+ "'I' to find all courses taught by a specified instructor\n"
 	    		+ "'R' to find the top five courses with the lowest "
 	    		+ "difficulty-to-quality ratio across all offerings\n"
 	    		+ "'Q' to find all courses at or above a specified quality rating across all offerings\n"
-	    		+ "'E' to exit the program\n";
+	    		+ "'E' to exit the program";
 	    System.out.println(prompt); 
 	 
 	    String userInput = "";

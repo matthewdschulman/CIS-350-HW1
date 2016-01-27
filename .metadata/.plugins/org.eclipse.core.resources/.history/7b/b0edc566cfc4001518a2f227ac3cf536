@@ -64,7 +64,7 @@ public class DataParsing {
 			);
 		}
 		// Return the sorted mapping from difficulty-to-quality ratio -> course code
-		return sortByValue(courseRatios, false);
+		return sortByValue(courseRatios, true);
 	}
 	
 	public static HashMap<String, Double> getQualityScores(
@@ -78,7 +78,7 @@ public class DataParsing {
 			);
 		}
 		// Return the sorted mapping from difficulty-to-quality ratio -> course code
-		return sortByValue(courseQualityScores, true);
+		return sortByValue(courseQualityScores, false);
 	}
 	
 	public static HashMap<String, CollegeClass> getCollegeClassObjects(

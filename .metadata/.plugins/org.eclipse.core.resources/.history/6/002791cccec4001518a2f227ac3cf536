@@ -64,21 +64,7 @@ public class DataParsing {
 			);
 		}
 		// Return the sorted mapping from difficulty-to-quality ratio -> course code
-		return sortByValue(courseRatios, false);
-	}
-	
-	public static HashMap<String, Double> getQualityScores(
-			HashMap<String, CollegeClass> classTracker) {
-		HashMap<String, Double> courseQualityScores = new HashMap<String, Double>();
-		for (String course : classTracker.keySet()) {
-			CollegeClass curClassObj = classTracker.get(course);
-			courseQualityScores.put(
-				course,
-				curClassObj.getQualityScore()				
-			);
-		}
-		// Return the sorted mapping from difficulty-to-quality ratio -> course code
-		return sortByValue(courseQualityScores, true);
+		return sortByValue(courseRatios);
 	}
 	
 	public static HashMap<String, CollegeClass> getCollegeClassObjects(
@@ -113,16 +99,12 @@ public class DataParsing {
 	}
 	
 	public static <String, Double extends Comparable<? super Double>> 
-			LinkedHashMap<String, Double> sortByValue(HashMap<String, Double> courseRatiosMap, final boolean ascending) {
+			LinkedHashMap<String, Double> sortByValue(HashMap<String, Double> courseRatiosMap) {
 	    LinkedList<Map.Entry<String, Double>> list =
 	        new LinkedList<Map.Entry<String, Double>>(courseRatiosMap.entrySet() );
 	    Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
 	        public int compare( Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
-	        	if (ascending == true) {
-	        		return (o2.getValue()).compareTo(o1.getValue());
-	        	} else {
-	        		return (o1.getValue()).compareTo(o2.getValue());
-	        	}
+	            return (o1.getValue()).compareTo(o2.getValue());
 	        }
 	    });	
 	    LinkedHashMap<String, Double> result = new LinkedHashMap<String, Double>();
@@ -131,7 +113,5 @@ public class DataParsing {
 	    }	    
 	    return result;
 	}
-
-	
 
 }

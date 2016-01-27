@@ -47,20 +47,15 @@ public class Main {
 	    HashMap<String, TreeSet<String>> profToCourses = 
 	    	DataParsing.getProfToCourses(courseEvalFile);
 	    
-	    // Next, create a set of objects that keep track of
-	    // course data
-	    HashMap<String, CollegeClass> classTracker =
-	    	DataParsing.getCollegeClassObjects(courseEvalFile);
-	    
 	    // Next, create a linkedhashmap that maps courses to their
 	    // difficulty-to-quality ratios from lowest to highest
 	    HashMap<String, Double> courseRatios = 
-	    	DataParsing.getRatios(classTracker);	
+	    	DataParsing.getRatios(courseEvalFile);	
 	    
 	    // Last, create a linkedhashmap that maps courses to 
 	    // their quality score from highest to lowest
 	    HashMap<String, Double> courseQualityMappings =
-	    	DataParsing.getQualityScores(classTracker);
+	    	DataParsing.getRatios(courseEvalFile);
 	    
 		// While the User hasn't asked to quit, ask User to either 
 		// 1) Find all courses taught by a specified instructor 
@@ -82,7 +77,7 @@ public class Main {
 			} else if (userResponse.equals("Q")) {
 				// Handle finding all courses at or above a specified rating across 
 				// all offerings
-				HighQualityQuery.highQualityQuery(courseQualityMappings);
+				HighQualityQuery.highQualityQuery();
 			} else if (userResponse.equals("E")) {
 				System.out.println("Thank you for using the Schulman Searcher! Goodbye!\n\n");
 				System.exit(0);
