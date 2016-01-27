@@ -22,6 +22,7 @@ public class GetUserCommand {
 	    	  System.out.println("Your input was " + userInput + " which does not match 'I', 'R', 'Q', "
 	    	  		+ "or 'E'. Please try again\n" + prompt);	    	  
 	      } else {
+	    	  System.out.println("MOVING ON");
 	    	  return userInput;
 	      }
 	    }

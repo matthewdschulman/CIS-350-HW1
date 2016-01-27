@@ -15,15 +15,16 @@ public class GetUserCommand {
 	 
 	    String userInput = "";
 	    while ((userInput = input.next()) != "") {
-	      if (!userInput.equals("I") && 
-	    		  !userInput.equals("R") && 
-	    		  !userInput.equals("Q") &&
-	    		  !userInput.equals("E")) {
-	    	  System.out.println("Your input was " + userInput + " which does not match 'I', 'R', 'Q', "
-	    	  		+ "or 'E'. Please try again\n" + prompt);	    	  
-	      } else {
-	    	  return userInput;
-	      }
+//	      if ((!userInput.equals("I") && 
+//	    		  !userInput.equals("R")) && 
+//	    		  (!userInput.equals("Q") &&
+//	    		  !userInput.equals("E"))) {
+//	    	  System.out.println("Your input was " + userInput + " which does not match 'I', 'R', 'Q', "
+//	    	  		+ "or 'E'. Please try again\n" + prompt);	    	  
+//	      } else {
+//	    	  return userInput;
+//	      }
+	    	return userInput;
 	    }
 		// Should never reach here
 	    throw new IllegalStateException();

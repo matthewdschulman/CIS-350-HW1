@@ -1,0 +1,20 @@
+package edu.upenn.cis350.hwk1;
+
+import java.util.Scanner;
+
+public class GetUserCommand {
+	public static String getUserCommand() {
+		Scanner input = new Scanner(System.in);
+	    System.out.println("Input One of the following commands:\n"
+	    		+ "'I' to find all courses taught by a specified instructor\n"
+	    		+ "'R' to find the top five courses with the lowest "
+	    		+ "difficulty-to-quality ratio across all offerings\n"
+	    		+ "'Q' to find all courses at or above a specified quality rating across all offerings"
+	    		+ "'E' to exit the program"); 
+	 
+	    while ((n = input.nextInt()) != 0) {
+	      System.out.println("You entered " + n);
+	      System.out.println("Input an integer");
+	    }
+	}
+}
