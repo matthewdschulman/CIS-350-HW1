@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.TreeSet;
 
 public class Main {	
 	// Two user args are 1) the course evaluation file name and 
@@ -39,7 +38,7 @@ public class Main {
 	    // Do some pre user input data parsing
 	    File courseEvalFile = new File(courseEvalFileName);
 	    // First, create a mapping of each instructor to his/her courses
-	    HashMap<String, TreeSet<String>> profToCourses = 
+	    HashMap<String, HashSet<String>> profToCourses = 
 	    		DataParsing.getProfToCourses(courseEvalFile);
 
 		// While the User hasn't asked to quit, ask User to either 

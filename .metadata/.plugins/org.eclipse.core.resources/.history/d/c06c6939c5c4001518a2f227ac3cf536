@@ -24,8 +24,8 @@ public class InstructorQuery {
 	    userInput = userInput.toUpperCase();
 	    
 	    // Save the matches for the printing
-	    TreeMap<String, TreeSet<String>> instructorMatches = 
-	    	new TreeMap<String, TreeSet<String>>();
+	    TreeMap<String, HashSet<String>> instructorMatches = 
+	    	new TreeMap<String, HashSet<String>>();
 	    
 	    // Iterate through the prof to courses mappings to find the matches
 	    for (String prof : profToCourses.keySet()) {

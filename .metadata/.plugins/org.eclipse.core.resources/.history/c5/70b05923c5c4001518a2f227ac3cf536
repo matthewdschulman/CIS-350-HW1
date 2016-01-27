@@ -8,15 +8,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.TreeSet;
 
 public class DataParsing {
 
-	public static HashMap<String, TreeSet<String>> getProfToCourses(
+	public static HashMap<String, HashSet<String>> getProfToCourses(
 			File courseEvalFile) throws IOException {
 		// Set up the return data structure
-		HashMap<String, TreeSet<String>> profToCourses = 
-				new HashMap<String, TreeSet<String>>();
+		HashMap<String, HashSet<String>> profToCourses = 
+				new HashMap<String, HashSet<String>>();
 		
 		// Read through the file and create mappings for each prof
 		// to the courses that he teaches
@@ -27,9 +26,9 @@ public class DataParsing {
 		        String[] curLine = line.split(",");
 		        String curProf = curLine[1];
 		        // check if the current prof already has been assigned courses
-		        TreeSet<String> curSetOfClasses = null;
+		        HashSet<String> curSetOfClasses = null;
 		        if (profToCourses.get(curProf) == null) {
-		        	curSetOfClasses = new TreeSet<String>();
+		        	curSetOfClasses = new HashSet<String>();
 		        } else {
 		        	curSetOfClasses = profToCourses.get(curProf);
 		        }

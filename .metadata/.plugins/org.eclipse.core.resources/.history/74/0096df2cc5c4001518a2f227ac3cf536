@@ -8,10 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class InstructorQuery {
-	public static LinkedList<String> instructorQuery(HashMap<String, TreeSet<String>> profToCourses) {
+	public static LinkedList<String> instructorQuery(HashMap<String, HashSet<String>> profToCourses) {
 		Scanner input = new Scanner(System.in);
 		String prompt = "Please enter an instructor name. Partial matches are okay, and the "
 				+ "search is case-insensitive.\nE.g. “osera”, “OSERA”, “Peter”, "
@@ -24,8 +23,8 @@ public class InstructorQuery {
 	    userInput = userInput.toUpperCase();
 	    
 	    // Save the matches for the printing
-	    TreeMap<String, TreeSet<String>> instructorMatches = 
-	    	new TreeMap<String, TreeSet<String>>();
+	    TreeMap<String, HashSet<String>> instructorMatches = 
+	    	new TreeMap<String, HashSet<String>>();
 	    
 	    // Iterate through the prof to courses mappings to find the matches
 	    for (String prof : profToCourses.keySet()) {
