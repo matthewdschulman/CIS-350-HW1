@@ -6,16 +6,11 @@ import java.util.TreeMap;
 
 public class BestRatioQuery {
 
-	public static void bestRatioQuery(HashMap<String, Double> courseRatios, 
-			int numOfCoursesToReturn) {
+	public static void bestRatioQuery(HashMap<String, Double> courseRatios) {
 		// iterate through the course ratios mapping from lowest to highest
 		// to return the five most attractive course ratios
 		for (String course: courseRatios.keySet()) {
-			numOfCoursesToReturn--;
 			System.out.println(course + ": " + courseRatios.get(course));
-			if (numOfCoursesToReturn == 0) {
-				return;
-			}
 		}
 	}
 

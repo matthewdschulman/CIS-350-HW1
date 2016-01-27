@@ -95,8 +95,7 @@ public class DataParsing {
 		return sortByValue(courseRatios);
 	}
 	
-	public static <String, Double extends Comparable<? super Double>> 
-			LinkedHashMap<String, Double> sortByValue(HashMap<String, Double> courseRatiosMap) {
+	public static <String, Double extends Comparable<? super Double>> LinkedHashMap<String, Double> sortByValue(HashMap<String, Double> courseRatiosMap) {
 	    LinkedList<Map.Entry<String, Double>> list =
 	        new LinkedList<Map.Entry<String, Double>>(courseRatiosMap.entrySet() );
 	    Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
